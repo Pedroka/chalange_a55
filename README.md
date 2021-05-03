@@ -8,8 +8,24 @@
 pip install -r requirements.txt
 ```
 
+2. Configuracao RestFramework:
+Incluir o pacote do REST e o app no settings.py
 
-2. Confituração Authtoken no settings.py:
+```bash
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'app'
+]
+```
+
+3. Confituração Authtoken no settings.py:
 ```bash
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -22,7 +38,7 @@ REST_FRAMEWORK = {
 }
 ```
 
-3. Configurando Logging no settings.py:
+4. Configurando Logging no settings.py:
 ```bash
 LOGGING = {
     'version': 1,
@@ -42,12 +58,12 @@ LOGGING = {
 }
 ```
 
-4. Migrate banco:
+5. Migrate banco:
 ```bash
 python manage.py migrate
 ```
 
-5. CreateSuperuser:
+6. CreateSuperuser:
 ```bash
 python manage.py createsuperuser
 ```
