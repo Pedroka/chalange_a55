@@ -124,7 +124,7 @@ from .celery import app as celery_app
 ```
 O retorno deste endpoint será um Token que deve ser utilizado no header das outras chamadas Exemplo:
 ```bash
-Authorization - Token Token beb29a9f63498aca75947a9ab567244d7cb18149
+Authorization - Token beb29a9f63498aca75947a9ab567244d7cb18149
 ```
 
 2. Credito Request: Endpoint para solicitação de crédito:
