@@ -1,4 +1,4 @@
-## Instalação
+## Instalação:
 
 - Instalação do Ambiente:
 
@@ -47,6 +47,10 @@ LOGGING = {
 python manage.py migrate
 ```
 
+5. CreateSuperuser:
+```bash
+python manage.py createsuperuser
+```
 
 - Instalação Celery (Linux):
 
@@ -92,3 +96,36 @@ from __future__ import absolute_import
 # Django starts so that shared_task will use this app.
 from .celery import app as celery_app
 ```
+## Utilização:
+1. Login: Utilizar o usuário criado na sessão de Instalação do ambiente para login:
+```bash
+{
+	"username": "nome_de_usuario_aqui",
+	"password": "senha_aqui"
+}
+```
+O retorno deste endpoint será um Token que deve ser utilizado no header das outras chamadas Exemplo:
+```bash
+Authorization - Token Token beb29a9f63498aca75947a9ab567244d7cb18149
+```
+
+2. Credito Request: Endpoint para solicitação de crédito:
+```bash
+{
+	"name": "Teste",
+	"cpf": "22222222222",
+	"birth_date": "1990-01-01",
+	"credit_value": 40000.00
+}
+```
+
+No retorno deste endpoint é possível resgatar o ticket_number que será utilizado para consultar o status da Proposta.
+
+3. Status: Consulta o status da proposta através do ticket_number:
+```bash
+{
+	"ticket_number": "202151"
+}
+```
+## Observação:
+A cada 1 min o celery vai ser acionado e processar todas as propostas com status "Proposta em analise". De acordo com as regras definidas no teste a proposta vai ser Aprovada ou Recusada.
