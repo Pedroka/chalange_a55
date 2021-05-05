@@ -12,7 +12,7 @@ from dateutil.relativedelta import relativedelta
     soft_time_limit=20)
 def validate_credit():
     
-    ticket = TciketCreditRequest.objects.filter(status='Proposta em analise')
+    ticket = TicketCreditRequest.objects.filter(status='Proposta em analise')
     today = date.today()
     propostas = []
 

@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views
-from rest_framework.authtoken import views as tkviews
+from rest_framework_jwt.views import obtain_jwt_token
 
 
 urlpatterns = [
-    path('login/', tkviews.obtain_auth_token),
+    path('login/', obtain_jwt_token),
     path('request_credit', views.create_ticket),
     path('search_ticket', views.search_ticket),
     path('admin/', admin.site.urls),
